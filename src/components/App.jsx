@@ -1,25 +1,38 @@
 import React from 'react';
 import Header from './Header';
-import Main from './Main';
-
+import PostList from './PostList';
+import NewPost from './NewPost';
 
 import Error404 from './Error404';
 import { Switch, Route } from 'react-router-dom';
 
-function App() {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      masterPostList: []
+    };
+    this.handleAddingNewPostToList = this.handleAddingNewPostToList.bind(this);
+  }
 
+  handleAddingNewPostToList(newPost) {
+    var newMasterPostList = this.state.masterPostList.slice();
+    newMasterPostList.push(newPost);
+    this.setState({masterPostList: newMasterPostList});
+  }
 
-  return (
-    <div>
-      <Header/>
-      <Switch>
-        <Route patht='/' component={Main}/>
-        <Route component={Error404} />
-      </Switch>
-    </div>
-  );
-
+  render() {
+    return (
+      <div>
+        <Header/>
+        <Switch>
+          <Route path='/' render={()=><PostList postList={this.state.masterPostList} />}/>
+          <Route path='/newpost' render={()=><NewPost onNewPostCreation={this.handleAddingNewPostToList} />}/>
+          <Route component={Error404} />
+        </Switch>
+      </div>
+    );
+  }
 }
-
 
 export default App;

@@ -5,7 +5,7 @@ function Header(){
   return (
     <div>
       <h1>Thumbs Up / Down Test</h1>
-      <Link to="/">Home</Link>
+      <Link to="/">PostList</Link> <Link to="/newpost">New Post</Link>
     </div>
   );
 }
