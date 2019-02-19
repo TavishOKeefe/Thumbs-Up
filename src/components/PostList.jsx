@@ -9,6 +9,8 @@ function PostList(props){
       {props.postList.map((post, index) =>
         <Post name={post.name}
           message={post.message}
+          upVote={post.upVote}
+          downVote={post.downVote}
           key={index}/>
       )}
     </div>

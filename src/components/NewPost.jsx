@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 function NewPost(props){
   let _name = null;
   let _message = null;
+  // let _upVote = null;
+  // let _downVote = null;
 
   function handleNewPostSubmission(event) {
     event.preventDefault();
-    props.onNewPostCreation({name: _name.value, message: _message.value});
+    props.onNewPostCreation({name: _name.value, message: _message.value, upVote: 0, downVote: 0});
     _name.value = '';
     _message.value = '';
+    // _upVote.value = '';
+    // _downVote.value = '';
   }
 
   return (
