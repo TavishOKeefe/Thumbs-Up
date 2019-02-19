@@ -26,7 +26,7 @@ class App extends React.Component {
       <div>
         <Header/>
         <Switch>
-          <Route path='/' render={()=><PostList postList={this.state.masterPostList} />}/>
+          <Route exact path='/' render={()=><PostList postList={this.state.masterPostList} />}/>
           <Route path='/newpost' render={()=><NewPost onNewPostCreation={this.handleAddingNewPostToList} />}/>
           <Route component={Error404} />
         </Switch>
