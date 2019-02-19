@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Main from './Main';
 
 
 import Error404 from './Error404';
@@ -12,8 +13,7 @@ function App() {
     <div>
       <Header/>
       <Switch>
-
-
+        <Route patht='/' component={Main}/>
         <Route component={Error404} />
       </Switch>
     </div>
