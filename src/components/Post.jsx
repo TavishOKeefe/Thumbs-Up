@@ -16,6 +16,7 @@ class Post extends React.Component {
   handleUpTheVote() {
     var newUpVote = this.state.upVote + 1;
     this.setState({upVote: newUpVote});
+    console.log
   }
 
   handleDownTheVote() {
